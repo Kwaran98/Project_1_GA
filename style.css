@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Calligraffitti|Open+Sans');
+@import url('https://fonts.cdnfonts.com/css/water');
+
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    background-color: #ffae42;
+    border: 5px solid;
+    border-width: thick;
+    border-color: #0d0d0e;
+    background-color: #B8860B;
+}
+
+.gameTitle {
+    font-size: 50px;
+    text-align: left;
+    font-family: 'Water', sans-serif;
+    margin: 0 auto;
+}
+
+.Score{
+    font-size: 50px;
+    font-family: 'Calligraffitti';
+    /* padding-right: 40px; */
+    margin-right:40px;
+}
+
+#scoreValue{
+    padding-left: 20px;
+}
+
+.top-half {
+    position: absolute;
+    top: 20;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    /*Adjust the height based on your preference */
+    background: linear-gradient(to bottom, #FFFF00, transparent);
+}
+
+.water {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    /*Adjust the height based on your preference */
+    background-color: #87CEEB;
+}
+
+#food{
+    position: relative;
+}
+/* The birds */
+
+.bird-container,
+.bird-container2 {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    animation: animate-bird 4s linear infinite;
+}
+
+.bird-container2 {
+    animation: animate-bird1 5s linear infinite;
+}
+
+.bird,
+.bird2 {
+    width: 180px;
+    height: 250px;
+    background-image: url(Images/bird.svg);
+    background-size: auto 100%;
+    animation: bird 1s -0.5s steps(10) infinite;
+}
+
+@keyframes bird {
+    100% {
+        background-position: -3600px 0;
+    }
+}
+
+@keyframes animate-bird {
+    0% {
+        transform: translate(-10%, -10%) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(900px, 40%) scale(0.5) rotateY(20deg);
+    }
+
+    100% {
+        transform: translate(1800px, 60%) scale(0.1) rotateY(0deg);
+    }
+}
+
+@keyframes animate-bird1 {
+    0% {
+        transform: translate(-20%, -20%) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(600px, 30%) scale(0.5) rotateY(20deg);
+    }
+
+    100% {
+        transform: translate(1200px, -100px) scale(0.1) rotateY(0deg);
+    }
+}
+

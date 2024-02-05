@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.cdnfonts.com/css/water" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Whale Shark Game</title>
+  </head>
+  <body>
+    <nav>
+      <div class="gameTitle"><strong>Whale Shark</strong></div>
+      <div class="Score"><strong>Score:<span id="scoreValue"></span></strong></div>
+    </nav>
+    <div class="top-border"></div>
+    <div class="top-half"></div>
+    <div class="water">
+      <canvas id="canvas" width="5000" height="500"></canvas>
+      <img id="whale" src="Images/moving_right.png">
+      <img id="food" src="Images/realfood.png">
+      <img id="poison" src="Images/poison_spreadsheet.png">
+    </div>
+    <div id="droplet"></div>
+    <div class="bird-container">
+      <div class="bird"></div>
+    </div>
+    <div class="bird-container2">
+      <div class="bird2"></div>
+    </div>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
