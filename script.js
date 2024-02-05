@@ -116,6 +116,7 @@ function animate() {
   poison1.draw();
   poison2.draw();
   collisionfood(player1, food1);
+  collisionpoison(player1, poison1)
 }
 
 animate(); ///this function here is basically performing gravity
@@ -177,9 +178,16 @@ function updateScore() {
 
 function disappearfood1(food1) {
   console.log("Disappear");
-  food1.position.y += 100;
+  food1.position.y += 1000;
   food1.width = 0;
   food1.height = 0;
+}
+
+function disappearpoison1(poison1){
+    console.log("Disappear");
+    poison1.position.y += 1000;
+    poison1.width = 0;
+    poison1.height = 0;
 }
 
 function increaseScore() {
@@ -206,6 +214,20 @@ function collisionfood(player1, food1) {
     disappearfood1(food1);
   }
 }
+
+function collisionpoison(player1, poison1) {
+    const collision1 =
+      player1.position.x + player1.width >= poison1.position.x &&
+      player1.position.x <= poison1.position.x + poison1.width &&
+      player1.position.y + player1.height >= poison1.position.y &&
+      player1.position.y <= poison1.position.y + poison1.height;
+  
+    if (collision1) {
+      console.log("Collision Detected");
+      decreaseScore();
+      disappearpoison1(poison1)
+    }
+  }
 
 
 // updateScore();
