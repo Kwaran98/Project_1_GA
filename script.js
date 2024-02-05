@@ -72,12 +72,18 @@ class Player {
     this.width = 138;
     this.height = 110;
 
-    this.image = document.getElementById("whale");
+    this.sprites = {
+      Left: document.getElementById("whaleleft"),
+      Right: document.getElementById("whale"),
+    };
+
+    this.currentImage = this.sprites.Right;
+    //this.image = document.getElementById("whale");
   }
 
   draw() {
     c.drawImage(
-      this.image,
+      this.currentImage,
       0,
       0,
       this.width,
@@ -116,7 +122,7 @@ function animate() {
   poison1.draw();
   poison2.draw();
   collisionfood(player1, food1);
-  collisionpoison(player1, poison1)
+  collisionpoison(player1, poison1);
 }
 
 animate(); ///this function here is basically performing gravity
@@ -138,10 +144,12 @@ addEventListener("keydown", ({ keyCode }) => {
     case 39:
       console.log("Right");
       player1.velocity.x += 5;
+      player1.currentImage = player1.sprites.Right;
       break;
     case 37:
       console.log("Left");
       player1.velocity.x -= 5;
+      player1.currentImage = player1.sprites.Left;
       break;
   }
 });
@@ -168,38 +176,47 @@ addEventListener("keyup", ({ keyCode }) => {
   }
 });
 
+//Tabulating the scoresheet
 const scoreElement = document.getElementById("scoreValue");
 let score = 0;
+
+//Audios
+const yummy = document.getElementById("delicious");
+const reddy = document.getElementById("poisonous");
 
 //To update score
 function updateScore() {
   scoreElement.textContent = `${score}`;
 }
 
-function disappearfood1(food1) {
-  console.log("Disappear");
-  food1.position.y += 1000;
-  food1.width = 0;
-  food1.height = 0;
-}
-
-function disappearpoison1(poison1){
-    console.log("Disappear");
-    poison1.position.y += 1000;
-    poison1.width = 0;
-    poison1.height = 0;
-}
-
+//To increase score
 function increaseScore() {
   score++;
   updateScore();
 }
 
+//To decrease score 
 function decreaseScore() {
   score--;
   updateScore();
 }
 
+//First set of food and posion
+function disappearfood1(food1) {
+  console.log("Disappear");
+  food1.position.y += 1000;
+  food1.width = 0;
+  food1.height = 0;
+  yummy.play();
+}
+
+function disappearpoison1(poison1) {
+  console.log("Disappear");
+  poison1.position.y += 1000;
+  poison1.width = 0;
+  poison1.height = 0;
+  reddy.play();
+}
 
 function collisionfood(player1, food1) {
   const collision =
@@ -216,34 +233,15 @@ function collisionfood(player1, food1) {
 }
 
 function collisionpoison(player1, poison1) {
-    const collision1 =
-      player1.position.x + player1.width >= poison1.position.x &&
-      player1.position.x <= poison1.position.x + poison1.width &&
-      player1.position.y + player1.height >= poison1.position.y &&
-      player1.position.y <= poison1.position.y + poison1.height;
-  
-    if (collision1) {
-      console.log("Collision Detected");
-      decreaseScore();
-      disappearpoison1(poison1)
-    }
+  const collision1 =
+    player1.position.x + player1.width >= poison1.position.x &&
+    player1.position.x <= poison1.position.x + poison1.width &&
+    player1.position.y + player1.height >= poison1.position.y &&
+    player1.position.y <= poison1.position.y + poison1.height;
+
+  if (collision1) {
+    console.log("Collision Detected");
+    decreaseScore();
+    disappearpoison1(poison1);
   }
-
-
-// updateScore();
-// function gameLoop() {
-//   c.clearRect(0, 0, canvas.width, canvas.height);
-
-//   player1.update();
-//   const collision =
-//     player1.position.x
-
-//   if (collision) {
-//     console.log("Collision clause in 127");
-//     updateScore();
-//   }
-
-//   requestAnimationFrame(gameLoop);
-// }
-
-// gameLoop();
+}

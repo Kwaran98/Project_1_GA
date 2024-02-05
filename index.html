@@ -10,15 +10,20 @@
   <body>
     <nav>
       <div class="gameTitle"><strong>Whale Shark</strong></div>
-      <div class="Score"><strong>Score:<span id="scoreValue"></span></strong></div>
+      <div class="Score">
+        <strong>Score:<span id="scoreValue"></span></strong>
+      </div>
     </nav>
     <div class="top-border"></div>
     <div class="top-half"></div>
     <div class="water">
       <canvas id="canvas" width="5000" height="500"></canvas>
-      <img id="whale" src="Images/moving_right.png">
-      <img id="food" src="Images/realfood.png">
-      <img id="poison" src="Images/poison_spreadsheet.png">
+      <img id="whale" src="Images/moving_right.png" />
+      <img id="whaleleft" src="Images/moving_left.png" />
+      <img id="food" src="Images/realfood.png" />
+      <img id="poison" src="Images/poison_spreadsheet.png" />
+      <audio id="delicious"><source src="Audio/eating-sound-effect-36186.mp3" type="audio/mpeg"></audio>
+      <audio id="poisonous"><source src="Audio/small-creature-coughing-38462.mp3" type="audio/mpeg"></audio>
     </div>
     <div id="droplet"></div>
     <div class="bird-container">
@@ -27,6 +32,13 @@
     <div class="bird-container2">
       <div class="bird2"></div>
     </div>
+    <!-- <div id="GameOverScreen">
+      <div id="GameOverContent">
+        <p>You Lose!!</p>
+        <p>Your Score <span id="FinalScore">0</span></p>
+        <button id="restartButton" onclick="restartGame()">Restart Game</button>
+      </div>
+    </div> -->
     <script type="module" src="script.js"></script>
   </body>
 </html>

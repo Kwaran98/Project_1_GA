@@ -26,14 +26,14 @@ nav {
     margin: 0 auto;
 }
 
-.Score{
+.Score {
     font-size: 50px;
     font-family: 'Calligraffitti';
     /* padding-right: 40px; */
-    margin-right:40px;
+    margin-right: 40px;
 }
 
-#scoreValue{
+#scoreValue {
     padding-left: 20px;
 }
 
@@ -55,11 +55,13 @@ nav {
     height: 50%;
     /*Adjust the height based on your preference */
     background-color: #87CEEB;
+    background-image: url('Images/water_image\(2\).jpg');
 }
 
-#food{
+#food {
     position: relative;
 }
+
 /* The birds */
 
 .bird-container,
@@ -117,3 +119,36 @@ nav {
     }
 }
 
+/* Media queries for different screen sizes */
+
+@media screen and (max-width: 600px) {
+
+    /* Styles for screens with a width of 600 pixels or less */
+    .gameTitle {
+        font-size: 30px;
+    }
+
+    .Score {
+        font-size: 30px;
+    }
+
+    .water{
+        position: flex;
+        bottom: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+
+    /* Styles for screens with a width between 601 and 1200 pixels */
+    .gameTitle {
+        font-size: 40px;
+    }
+
+    .Score {
+        font-size: 40px;
+    }
+}
