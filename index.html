@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="style.css" />
     <title>Whale Shark Game</title>
   </head>
-  <body>
+  <body id="Start">
     <nav>
       <div class="gameTitle"><strong>Whale Shark</strong></div>
       <div class="Score">
         <strong>Score:<span id="scoreValue"></span></strong>
+      </div>
+      <div id="Countdown">
+        <strong>Timer: <span id="Timer">30</span></strong>
       </div>
     </nav>
     <div class="top-border"></div>
@@ -22,23 +25,31 @@
       <img id="whaleleft" src="Images/moving_left.png" />
       <img id="food" src="Images/realfood.png" />
       <img id="poison" src="Images/poison_spreadsheet.png" />
-      <audio id="delicious"><source src="Audio/eating-sound-effect-36186.mp3" type="audio/mpeg"></audio>
-      <audio id="poisonous"><source src="Audio/small-creature-coughing-38462.mp3" type="audio/mpeg"></audio>
+      <audio id="delicious">
+        <source src="Audio/eating-sound-effect-36186.mp3" type="audio/mpeg" />
+      </audio>
+      <audio id="poisonous">
+        <source
+          src="Audio/small-creature-coughing-38462.mp3"
+          type="audio/mpeg"
+        />
+      </audio>
     </div>
-    <div id="droplet"></div>
     <div class="bird-container">
       <div class="bird"></div>
     </div>
     <div class="bird-container2">
       <div class="bird2"></div>
     </div>
-    <!-- <div id="GameOverScreen">
-      <div id="GameOverContent">
-        <p>You Lose!!</p>
-        <p>Your Score <span id="FinalScore">0</span></p>
-        <button id="restartButton" onclick="restartGame()">Restart Game</button>
-      </div>
-    </div> -->
-    <script type="module" src="script.js"></script>
+    <div id="GameOver" style="display: none">
+      <h1 id="gameOverContent">Game Over</h1>
+      <h2 id="FinalScore"><strong>Your Score: <span id="GameOverScore"></span></strong></h2>
+      <h2 id="Thankyou">Thank You<br>Please click on the button below to play again<br></h2>
+    </div>
+    <div class="bubble" style="left:15%"></div>
+    <div class="bubble" style="left:35%"></div>
+    <div class="bubble" style="left:65%"></div>
+    <div class="bubble" style="left:85%"></div>
   </body>
+  <script type="module" src="script.js"></script>
 </html>

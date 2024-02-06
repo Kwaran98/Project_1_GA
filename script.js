@@ -104,25 +104,40 @@ class Player {
 
 const player1 = new Player();
 const food1 = new Food();
-const food2 = new Food();
 const poison1 = new Poison();
-const poison2 = new Poison();
 
-food2.position.x = 1700;
-food2.position.y = 200;
+const poison2 = new Poison();
 poison2.position.x = 1000;
 poison2.position.y = 300;
+
+const poison3 = new Poison();
+poison3.position.x = 1700;
+poison3.position.y = 200;
+
+const poison4 = new Poison();
+poison4.position.x = 1200;
+poison4.position.y = 100;
+
+const poison5 = new Poison();
+poison5.position.x = 100;
+poison5.position.y = 320;
 
 function animate() {
   requestAnimationFrame(animate);
   c.clearRect(0, 0, canvas.width, canvas.height); //this method basically allows us to maintain our player's shape
   player1.update();
   food1.draw();
-  food2.draw();
   poison1.draw();
   poison2.draw();
+  poison3.draw();
+  poison4.draw();
+  poison5.draw();
   collisionfood(player1, food1);
-  collisionpoison(player1, poison1);
+  collisionPoison(player1, poison1);
+  collisionPoison(player1, poison2);
+  collisionPoison(player1, poison3);
+  collisionPoison(player1, poison4);
+  collisionPoison(player1, poison5);
 }
 
 animate(); ///this function here is basically performing gravity
@@ -176,6 +191,36 @@ addEventListener("keyup", ({ keyCode }) => {
   }
 });
 
+//CountDown Timer
+const countDownElement = document.getElementById("Timer");
+const seconds = 30;
+
+function startCountdown(seconds) {
+  let currentSeconds = seconds;
+
+  const countdownInterval = setInterval(function () {
+    // Display the countdown
+    countDownElement.innerHTML = currentSeconds;
+
+    // If the countdown is over, display a message or perform an action
+    if (currentSeconds === 0) {
+      clearInterval(countdownInterval);
+      gameOver();
+      document.getElementById("GameOverScore").textContent = `${score}`;
+    } else {
+      currentSeconds--;
+    }
+  }, 1000);
+}
+
+startCountdown(seconds);
+
+function gameOver() {
+  // document.getElementById("Start").style.display = "none";
+  document.getElementById("GameOver").style.display = "block";
+  console.log("Yay");
+}
+
 //Tabulating the scoresheet
 const scoreElement = document.getElementById("scoreValue");
 let score = 0;
@@ -195,27 +240,20 @@ function increaseScore() {
   updateScore();
 }
 
-//To decrease score 
+//To decrease score
 function decreaseScore() {
   score--;
   updateScore();
 }
 
-//First set of food and posion
+// food
 function disappearfood1(food1) {
   console.log("Disappear");
-  food1.position.y += 1000;
-  food1.width = 0;
-  food1.height = 0;
+  const maxX = 1800;
+  const maxY = 350;
+  food1.position.x = Math.min(Math.random() * maxX, maxX);
+  food1.position.y = Math.min(Math.random() * maxY, maxY);
   yummy.play();
-}
-
-function disappearpoison1(poison1) {
-  console.log("Disappear");
-  poison1.position.y += 1000;
-  poison1.width = 0;
-  poison1.height = 0;
-  reddy.play();
 }
 
 function collisionfood(player1, food1) {
@@ -232,16 +270,25 @@ function collisionfood(player1, food1) {
   }
 }
 
-function collisionpoison(player1, poison1) {
-  const collision1 =
-    player1.position.x + player1.width >= poison1.position.x &&
-    player1.position.x <= poison1.position.x + poison1.width &&
-    player1.position.y + player1.height >= poison1.position.y &&
-    player1.position.y <= poison1.position.y + poison1.height;
+function collisionPoison(player1, poison) {
+  const collision =
+    player1.position.x + player1.width >= poison.position.x &&
+    player1.position.x <= poison.position.x + poison.width &&
+    player1.position.y + player1.height >= poison.position.y &&
+    player1.position.y <= poison.position.y + poison.height;
 
-  if (collision1) {
+  if (collision) {
     console.log("Collision Detected");
     decreaseScore();
-    disappearpoison1(poison1);
+    disappearPoison(poison);
   }
+}
+
+function disappearPoison(poison) {
+  console.log("Disappear");
+  const maxyX = 1800;
+  const maxyY = 350;
+  poison.position.x = Math.min(Math.random() * maxyX, maxyX);
+  poison.position.y = Math.min(Math.random() * maxyY, maxyY);
+  reddy.play();
 }
