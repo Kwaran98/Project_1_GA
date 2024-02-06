@@ -142,13 +142,6 @@ function animate() {
 
 animate(); ///this function here is basically performing gravity
 
-player1.draw();
-food1.draw();
-poison1.draw();
-
-
-
-
 addEventListener("keydown", ({ keyCode }) => {
   // console.log(keyCode)
   switch (keyCode) {
@@ -211,6 +204,7 @@ function startCountdown(seconds) {
       clearInterval(countdownInterval);
       gameOver();
       document.getElementById("GameOverScore").textContent = `${score}`;
+      end.play();
     } else {
       currentSeconds--;
     }
@@ -233,6 +227,7 @@ let score = 0;
 //Audios
 const yummy = document.getElementById("delicious");
 const reddy = document.getElementById("poisonous");
+const end = document.getElementById("Endgame");
 
 //To update score
 function updateScore() {
@@ -299,9 +294,9 @@ function disappearPoison(poison) {
 }
 
  
+const restartButton = document.getElementById("button");
+restartButton.addEventListener('click', startGame);
+
 function startGame(){
     location.reload();
 }
-
-const restartButton = document.getElementById("button");
-restartButton.addEventListener('click', startGame);
