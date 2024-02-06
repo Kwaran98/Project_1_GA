@@ -12,4 +12,5 @@
 
 ![image](https://github.com/Kwaran98/Project_1_GA/assets/142907620/ba7ccf78-5212-451d-b4f3-9551caf60304)
 
-https://kwaran98.github.io/Project_1_GA/![image](https://github.com/Kwaran98/Project_1_GA/assets/142907620/8c649932-ef6b-4eaa-8f0b-944ec720d9a2)
+https://kwaran98.github.io/Project_1_GA/
+
