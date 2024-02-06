@@ -41,15 +41,26 @@
     <div class="bird-container2">
       <div class="bird2"></div>
     </div>
+    <!-- <div id="StartScreen">
+        <div id="StartContent">
+            <h1>Click on the button below to start playing</h1>
+            <button id="startGame" onclick="startGame()">Let's Go</button>
+        </div>
+    </div> -->
     <div id="GameOver" style="display: none">
       <h1 id="gameOverContent">Game Over</h1>
-      <h2 id="FinalScore"><strong>Your Score: <span id="GameOverScore"></span></strong></h2>
-      <h2 id="Thankyou">Thank You<br>Please click on the button below to play again<br></h2>
+      <h2 id="FinalScore">
+        <strong>Your Score: <span id="GameOverScore"></span></strong>
+      </h2>
+      <h2 id="Thankyou">
+        Thank You<br />Please click on the button below to play again<br />
+        <div id="restartButton"><button id="button"><strong>Restart Game</strong></button></div>
+      </h2>
     </div>
-    <div class="bubble" style="left:15%"></div>
-    <div class="bubble" style="left:35%"></div>
-    <div class="bubble" style="left:65%"></div>
-    <div class="bubble" style="left:85%"></div>
+    <div class="bubble" style="left: 15%"></div>
+    <div class="bubble" style="left: 35%"></div>
+    <div class="bubble" style="left: 65%"></div>
+    <div class="bubble" style="left: 85%"></div>
   </body>
   <script type="module" src="script.js"></script>
 </html>

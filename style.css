@@ -197,7 +197,7 @@ nav {
     display: none;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: lightblue;
     font-size: 24px;
 
 }
@@ -227,4 +227,27 @@ nav {
     top: 30%;
     width: 100%;
     height: 100%;
+}
+
+#restartButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 25vh;
+}
+
+#button{
+    font-size: large;
+    font-family: 'Papyrus';
+    background-color: white;
+    border-width: 5px;
+    border-color: #0d0d0e;
+    width:150px;
+    height:50px;
+}
+
+#button:hover{
+    background-color: rgb(37, 161, 202);
 }

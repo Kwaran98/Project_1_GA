@@ -78,7 +78,6 @@ class Player {
     };
 
     this.currentImage = this.sprites.Right;
-    //this.image = document.getElementById("whale");
   }
 
   draw() {
@@ -140,10 +139,15 @@ function animate() {
   collisionPoison(player1, poison5);
 }
 
+
 animate(); ///this function here is basically performing gravity
+
 player1.draw();
 food1.draw();
 poison1.draw();
+
+
+
 
 addEventListener("keydown", ({ keyCode }) => {
   // console.log(keyCode)
@@ -215,10 +219,11 @@ function startCountdown(seconds) {
 
 startCountdown(seconds);
 
+//Game Over Function
 function gameOver() {
-  // document.getElementById("Start").style.display = "none";
   document.getElementById("GameOver").style.display = "block";
-  console.log("Yay");
+  player1.position.x=10000;
+  player1.position.y=10000;
 }
 
 //Tabulating the scoresheet
@@ -292,3 +297,11 @@ function disappearPoison(poison) {
   poison.position.y = Math.min(Math.random() * maxyY, maxyY);
   reddy.play();
 }
+
+ 
+function startGame(){
+    location.reload();
+}
+
+const restartButton = document.getElementById("button");
+restartButton.addEventListener('click', startGame);
