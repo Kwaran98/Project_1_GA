@@ -9,3 +9,5 @@
 ![image](https://github.com/Kwaran98/Project_1_GA/assets/142907620/c97d71f4-4cbd-42a6-b66f-cf204e9847f9)
 
 <img width="860" alt="image" src="https://github.com/Kwaran98/Project_1_GA/assets/142907620/ecf84290-f67c-4468-bb06-e562481c1771">
+
+![image](https://github.com/Kwaran98/Project_1_GA/assets/142907620/deb5378c-9358-45b4-ac35-de48f46a7c1d)
