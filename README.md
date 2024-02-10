@@ -10,6 +10,8 @@
 
 <img width="860" alt="image" src="https://github.com/Kwaran98/Project_1_GA/assets/142907620/ecf84290-f67c-4468-bb06-e562481c1771">
 
+
+
 ![image](https://github.com/Kwaran98/Project_1_GA/assets/142907620/11250ef8-071e-4ec6-a15e-30d0fa4170dd)
 
 https://kwaran98.github.io/Project_1_GA/
